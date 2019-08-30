@@ -13,4 +13,4 @@
  
 #define the address inside of bot.py# exemple: 'C:\\Users\\capit\Documents\\Bot\\chromedriver.exe'
  
-#run bot.py
+#run manager.py
