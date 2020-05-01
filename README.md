@@ -15,6 +15,6 @@
  
 #set python 3.6 as a path of your system
 
-#set 'C:\Users\< user >\AppData\Local\Programs\Python\Python36-32\python.exe' as default to run .py extension
+#set 'C:\Users\ < user > \AppData\Local\Programs\Python\Python36-32\python.exe' as default to run .py extension
 
 #run manager.py
