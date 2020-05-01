@@ -7,8 +7,7 @@ from datetime import timedelta
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-path = r'C:/Users/capit/Documents/Bot'
-conn = sqlite3.connect(path + '/bot.db')
+conn = sqlite3.connect('./bot.db')
 cursor = conn.cursor()
 x = cursor.execute("""select * from id_select
             ;""")
@@ -17,8 +16,7 @@ for i in x:
     print(login_bot)
 
 def select_where(oq, deq, b="", c="", f=None):
-    path = r'C:/Users/capit/Documents/Bot'
-    conn = sqlite3.connect(path + '/bot.db')
+    conn = sqlite3.connect('./bot.db')
     cursor = conn.cursor()
     print("selecr_where")
     a = " "
@@ -223,7 +221,7 @@ options.add_argument('window-size=1920x1080')
 options.add_argument("--disable-gpu")
 #options.binary_location = 'C:\\Program Files (x86)\\Google\\Chrome\\Application'
 '''
-driver = webdriver.Chrome('C:\\Users\\capit\Documents\\Bot\\chromedriver.exe')#, chrome_options=options)
+driver = webdriver.Chrome('./chromedriver.exe')#, chrome_options=options)
 driver.get("http://furiadetitas.net/?sign_in=1")
 # driver.maximize_window()
 driver.find_element_by_name("login").send_keys(login_bot)  # login

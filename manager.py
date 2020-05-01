@@ -22,8 +22,8 @@ from kivy.config import Config
 
 import sqlite3
 
-path = r'C:/Users/capit/Documents/Bot'
-conn = sqlite3.connect(path + '/bot.db')
+
+conn = sqlite3.connect('./bot.db')
 cursor = conn.cursor()
 cursor.execute("""
 create table if not exists cadastro(
@@ -60,8 +60,7 @@ select * from id_select
 rows = x.fetchall()
 print(rows)
 if(rows==[]):
-    path = r'C:/Users/capit/Documents/Bot'
-    conn = sqlite3.connect(path + '/bot.db')
+    conn = sqlite3.connect('./bot.db')
     cursor = conn.cursor()
     cursor.execute("""
      insert into id_select(name) Values(0)
@@ -126,8 +125,7 @@ def select_where(oq, deq, b="", c="", f=None):
 def update_cadastro(login, oq, deq):
     b = select_where('*','cadastro','login','"'+login+'"')
     print(b)
-    path = r'C:/Users/capit/Documents/Bot'
-    conn = sqlite3.connect(path + '/bot.db')
+    conn = sqlite3.connect('./bot.db')
     cursor = conn.cursor()
     cursor.execute('update cadastro set "' + str(oq) + '"= "' + str(deq) + '" where login= "'+str(login)+'";')
     conn.commit()
@@ -158,8 +156,7 @@ def insert_cadastro(tabela, a):
         elif (9 not in x):
             id = 9
         print(x)
-        path = r'C:/Users/capit/Documents/Bot'
-        conn = sqlite3.connect(path + '/bot.db')
+        conn = sqlite3.connect('./bot.db')
         cursor = conn.cursor()
         cursor.execute('INSERT INTO cadastro("id","login", "senha") VALUES(?, ?, ?)', (str(id), str(tabela), str(a)))
         print(f'insert ok, inseridos {tabela} e {a}')
@@ -168,8 +165,7 @@ def insert_cadastro(tabela, a):
 
 
 def alter_cadastro(tabela, a, b):
-    path = r'C:/Users/capit/Documents/Bot'
-    conn = sqlite3.connect(path + '/bot.db')
+    conn = sqlite3.connect('./bot.db')
     cursor = conn.cursor()
     cursor.execute('update cadastro set "senha" = "' + str(tabela) + '" WHERE ' + str(a) + ' = "' + str(b) + '"')
     conn.commit()
@@ -177,8 +173,7 @@ def alter_cadastro(tabela, a, b):
 
 
 def remove_cadastro(tabela, a):
-    path = r'C:/Users/capit/Documents/Bot'
-    conn = sqlite3.connect(path + '/bot.db')
+    conn = sqlite3.connect('./bot.db')
     cursor = conn.cursor()
     cursor.execute("""Delete from cadastro
         where """ + tabela + '=="' + str(a) + '"'";")
@@ -591,8 +586,7 @@ class Bot(Screen):
             global config_setup, login_bot, senha_bot
             s = select_where('*', 'cadastro', 'login', '"' + self.ids.start.name + '"')
             print(s)
-            path = r'C:/Users/capit/Documents/Bot'
-            conn = sqlite3.connect(path + '/bot.db')
+            conn = sqlite3.connect('./bot.db')
             cursor = conn.cursor()
             cursor.execute('''update id_select set 
             "name"= "''' + self.ids.start.name + '" where ident= 1;')
@@ -603,7 +597,7 @@ class Bot(Screen):
             print("alterado")
             conn.commit()
             conn.close()
-            os.startfile('bot.py')
+            os.startfile('C:\\Users\\berrytern\\Documents\\projects\\Bot_jogo-master\\bot.py')
 
 
 

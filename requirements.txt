@@ -6,3 +6,4 @@ kivy-deps.gstreamer==0.1.17
 kivy-deps.sdl2==0.1.22
 Kivy-Garden==0.1.4
 Pillow==5.4.1
+selenium==3.141.0
